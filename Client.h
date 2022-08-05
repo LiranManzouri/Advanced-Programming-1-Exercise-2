@@ -9,7 +9,7 @@
 class Client {
 
 public:
-    void communicate() const;
+    static void communicate() ;
 };
 
 
