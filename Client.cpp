@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //
 // Created by liran on 06/08/2022.
 //
@@ -6,9 +5,6 @@
 #include "Client.h"
 // #include "ReadFlowers.h"
 
-=======
-#include <iostream>
->>>>>>> 60bacc5109490a8e61af2bd786076c1521f9356e
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
