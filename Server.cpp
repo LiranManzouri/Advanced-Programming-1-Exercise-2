@@ -48,7 +48,7 @@ int main() {
         }
         cout << "Enter message from server to client: " << endl;
         cin >> buffer;
-        long sent_bytes = send(client_sock, buffer, read_bytes, 0);
+        long sent_bytes = send(client_sock, buffer, expected_data_len, 0);
         if (sent_bytes < 0) {
             cout << "Error sending to client in SERVER" << endl;
             exit(1);

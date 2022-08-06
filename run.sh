@@ -1,7 +1,6 @@
 #!usr/bin/bash
 
 function terminal1(){
-    #!usr/bin/bash
     echo "g++ Server.cpp Server.h -o bin/Server.out"
     g++ Server.cpp Server.h -o bin/Server.out
     echo "bin/Server.out"

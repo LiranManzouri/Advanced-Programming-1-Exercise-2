@@ -31,21 +31,25 @@ int main() {
         cout << "Error connecting to server in CLIENT" << endl;
         exit(1);
     }
-    char data_addr[] = "Im a message";
-    unsigned long data_len = strlen(data_addr);
+    char buffer[4096] = "Im a message";
+    unsigned long data_len = strlen(buffer);
     int num = 1;
     while (num != 6) {
         num++;
+
         cout << "Enter message from client to server: " << endl;
-        cin >> data_addr;
-        long sent_bytes = send(sock, data_addr, data_len, 0);
-        if (sent_bytes < 0) {
+        cin >> buffer;
+        data_len = strlen(buffer);
+        long sent_bytes = send(sock, buffer, data_len, 0);
+        cout << "sent_bytes:" << sent_bytes << endl;
+        if (sent_bytes < 0)
+        {
             cout << "Error sending to server in CLIENT" << endl;
             exit(1);
         }
-        char buffer[4096];
-        int expected_data_len = sizeof(buffer);
-        long read_bytes = recv(sock, buffer, expected_data_len, 0);
+
+        data_len = 4096;
+        long read_bytes = recv(sock, buffer, data_len, 0);
         if (read_bytes == 0) {
             cout << "Closed connection in CLIENT" << endl;
         } else if (read_bytes < 0) {
