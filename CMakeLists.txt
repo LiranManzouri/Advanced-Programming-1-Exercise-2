@@ -16,9 +16,9 @@ add_executable(Advanced_Programming_1___Exercise_2
         ClassifyFlower.h
         CreateClassifiedFiles.cpp
         CreateClassifiedFiles.h
-        Client.cpp
-        Client.h
-        Server.cpp
-        Server.h
         Main.cpp
         Main.h)
+
+add_executable(Server 
+               Server.h
+               Server.cpp)
