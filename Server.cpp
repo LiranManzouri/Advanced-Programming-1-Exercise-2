@@ -82,6 +82,6 @@ int main(int argc, char const *argv[]) {
 
     cout << "Sent successfully!" << endl;
 
-    close(sock);
+    close(client_sock);
 
 }
