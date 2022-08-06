@@ -6,10 +6,21 @@
 #define ADVANCED_PROGRAMMING_1___EXERCISE_2_CLIENT_H
 
 
+#include <string>
+#include <utility>
+
 class Client {
 
+   /* const std::string unclassifiedPath;
+    const std::string classifiedOutputPath;
+
 public:
-    static void communicate() ;
+
+    Client(std::string unclassifiedPth, std::string classifiedOutputPath) :
+            unclassifiedPath(std::move(unclassifiedPth)), classifiedOutputPath(std::move(classifiedOutputPath)) {
+    }*/
+
+//    void communicate() const;
 };
 
 

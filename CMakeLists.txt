@@ -18,5 +18,7 @@ add_executable(Advanced_Programming_1___Exercise_2
         CreateClassifiedFiles.h
         Client.cpp
         Client.h
+        Server.cpp
+        Server.h
         Main.cpp
         Main.h)

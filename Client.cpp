@@ -2,9 +2,9 @@
 // Created by liran on 06/08/2022.
 //
 
-using namespace std;
+//#include "Client.h"
+#include "ReadFlowers.h"
 
-#include "Client.h"
 #include <sys/socket.h>
 #include <cstdlib>
 #include <netinet/in.h>
@@ -12,9 +12,14 @@ using namespace std;
 #include <unistd.h>
 #include <iostream>
 
-#define PORT 8080
+#define PORT 5933
 
-void Client::communicate() {
+using namespace std;
+
+int main(int argc, char const *argv[]) {
+
+    cout << PORT << endl;
+
     int sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock < 0) {
         cout << "Failed creating a socket!" << endl;
@@ -29,18 +34,19 @@ void Client::communicate() {
 
     sin.sin_port = htons(PORT);
 
-    if (connect(sock, (struct sockaddr *) &sin, sizeof(sin))) {
+    if (connect(sock, (struct sockaddr *) &sin, sizeof(sin)) < 0) {
         cout << "Failed connecting!" << endl;
         exit(1);
     }
 
-    char message[] = "I'm a message";
-    int message_len = 13;
-
-    long sent_bytes = send(sock, message, message_len, 0);
+    char messages[] = "The Fu MSG";
+//  string messages[] = {argv[0], argv[1]};
+    unsigned long messages_len = /*arr[0].length() + arr[1].length()*//*2*/10;
+    long sent_bytes = send(sock, /*message*/messages, messages_len, 0);
 
     if (sent_bytes < 0) {
         cout << "Failed sending the info!" << endl;
+        exit(1);
     }
 
     char buffer[4096] = {0};
@@ -49,7 +55,7 @@ void Client::communicate() {
     long read_bytes = recv(sock, buffer, expected_data_len, 0);
     if (read_bytes == 0) {
         cout << "connection is closed" << endl;
-        return;
+        return 1;
     }
 
     if (read_bytes < 0) {
