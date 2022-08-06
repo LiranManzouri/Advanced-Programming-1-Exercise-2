@@ -18,8 +18,6 @@ function terminal2(){
 export -f terminal1
 export -f terminal2
 
-# x-terminal-emulator -e bash -c 'terminal1; bash'
-# x-terminal-emulator -e bash -c 'terminal2; bash'
-
-compileAll
+x-terminal-emulator -e bash -c 'terminal1; bash'
+x-terminal-emulator -e bash -c 'terminal2; bash'
 
