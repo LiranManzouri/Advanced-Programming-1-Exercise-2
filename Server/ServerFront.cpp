@@ -8,7 +8,7 @@ using namespace std;
 
 void ServerFront::StartServer() {
     const int server_port = 5555;
-    int sock = socket(AF_INET, SOCK_STREAM, 0);
+    sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock < 0) {
         cout << "Error creating socket in SERVER" << endl;
         exit(1);
@@ -28,33 +28,33 @@ void ServerFront::StartServer() {
     }
     struct sockaddr_in client_sin{};
     unsigned int addr_len = sizeof(client_sin);
-    int client_sock = accept(sock, (struct sockaddr *) &client_sin, &addr_len);
+    client_sock = accept(sock, (struct sockaddr *) &client_sin, &addr_len);
     if (client_sock < 0) {
         cout << "Error accepting client in SERVER" << endl;
         exit(1);
     }
-    int num = 1;
-    while (num != 6) {
-        char buffer[4096] = "messege";
-        int expected_data_len = 4096;
-        num++;
-        long read_bytes = recv(client_sock, buffer, expected_data_len, 0);
-        if (read_bytes == 0) {
-            cout << "Closed connection in SERVER" << endl;
-        } else if (read_bytes < 0) {
-            cout << "Error reading in SERVER" << endl;
-            exit(1);
-        } else {
-            cout << buffer << endl;
-        }
-        cout << "Enter message from server to client: " << endl;
-        cin >> buffer;
-        long sent_bytes = send(client_sock, buffer, expected_data_len, 0);
-        if (sent_bytes < 0) {
-            cout << "Error sending to client in SERVER" << endl;
-            exit(1);
-        }
+}
+
+char* ServerFront::reciveMessege(){
+    long read_bytes = recv(client_sock, buffer, data_len, 0);
+    if (read_bytes == 0) {
+        cout << "Closed connection in SERVER" << endl;
+    } else if (read_bytes < 0) {
+        cout << "Error reading in SERVER" << endl;
+        exit(1);
     }
+    return buffer;
+}
+
+void ServerFront::sendMessege(char (&message)[4096]){
+    long sent_bytes = send(client_sock, message, data_len, 0);
+    if (sent_bytes < 0) {
+        cout << "Error sending to client in SERVER" << endl;
+        exit(1);
+    }
+}
+
+ServerFront::~ServerFront(){
     cout << "Closing socket in SERVER" << endl;
     close(sock);
 }

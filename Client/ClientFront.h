@@ -8,7 +8,7 @@ private:
     const int data_len = 4096;
     char buffer[4096];
 
-    void StartClient() const;
+    void StartClient();
 
 public:
 
@@ -16,7 +16,7 @@ public:
         StartClient();
     }
 
-    void sendMessege(const char message[4096]) const;
-    const char* reciveMessege() const;
+    void sendMessege(char (&message)[4096]);
+    char* reciveMessege();
     ~ClientFront();
 };

@@ -2,14 +2,16 @@
 #include "ClientFront.h"
 
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
 int main(int argc, char const *argv[])
 {
     ClientFront front;
-    const char message[4096] = "hello";
-    front.sendMessege(message);
-    cout << front.reciveMessege() << endl;
-    delete &front;
+    char message[4096] = "";
+    while (strcmp(message, "close") != 0){
+        cin >> message;
+        front.sendMessege(message);
+    }
 }
