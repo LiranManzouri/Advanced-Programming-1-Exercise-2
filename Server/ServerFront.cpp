@@ -2,10 +2,11 @@
 #include <unistd.h>
 #include <cstring>
 #include <iostream>
+#include "ServerFront.h"
 
 using namespace std;
 
-int main() {
+void ServerFront::StartServer() {
     const int server_port = 5555;
     int sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock < 0) {
@@ -34,8 +35,8 @@ int main() {
     }
     int num = 1;
     while (num != 6) {
-        char buffer[4096];
-        int expected_data_len = sizeof(buffer);
+        char buffer[4096] = "messege";
+        int expected_data_len = 4096;
         num++;
         long read_bytes = recv(client_sock, buffer, expected_data_len, 0);
         if (read_bytes == 0) {
@@ -56,5 +57,4 @@ int main() {
     }
     cout << "Closing socket in SERVER" << endl;
     close(sock);
-    return 0;
 }
