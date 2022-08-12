@@ -1,13 +1,13 @@
 #!usr/bin/bash
-# shellcheck disable=SC2239
-function terminal1() {
-  g++ Server/*.cpp Server/*.h -o bin/Server.out
-  bin/Server.out
+
+function terminal1(){
+    g++ Server/*.cpp Server/*.h -o bin/Server.out
+    bin/Server.out
 }
 
-function terminal2() {
-  g++ Server/*cpp Client/*h -o bin/Client.out
-  bin/Client.out
+function terminal2(){
+    g++ Client/*cpp Client/*h -o bin/Client.out
+    bin/Client.out
 }
 
 export -f terminal1
