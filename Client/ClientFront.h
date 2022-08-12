@@ -16,7 +16,7 @@ public:
         StartClient();
     }
 
-    void sendMessege(char (&message)[4096]);
+    void sendMessage(char (&message)[4096]) const;
 //    char* receiveMessege();
     ~ClientFront();
 };

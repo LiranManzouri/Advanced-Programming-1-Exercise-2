@@ -29,7 +29,7 @@ void ClientFront::StartClient() {
     }
 }
 
-void ClientFront::sendMessege(char (&message)[4096]) {
+void ClientFront::sendMessage(char (&message)[4096]) const {
     unsigned long my_data_len = strlen(message);
     long sent_bytes = send(sock, message, my_data_len, 0);
     if (sent_bytes < 0) {

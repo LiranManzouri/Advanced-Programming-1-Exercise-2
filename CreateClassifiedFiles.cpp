@@ -7,6 +7,7 @@
 #include "ClassifyFlower.h"
 #include <fstream>
 #include <iostream>
+#include <utility>
 
 using namespace std;
 
@@ -18,13 +19,13 @@ void CreateClassifiedFiles::createClassified() const {
 
     //opens all the files, and makes sure there are no errors
     ofstream classifyByEuclideanFile;
-    classifyByEuclideanFile.open("euclidean_output.csv");
+    classifyByEuclideanFile.open(outputClassifiedPath);
     if (!classifyByEuclideanFile) {
         cerr << "Error: file couldn't be opened" << endl;
         exit(1);
     }
 
-    ofstream classifyByChebyshevFile;
+    /*ofstream classifyByChebyshevFile;
     classifyByChebyshevFile.open("chebyshev_output.csv");
     if (!classifyByChebyshevFile) {
         cerr << "Error: file couldn't be opened" << endl;
@@ -36,11 +37,11 @@ void CreateClassifiedFiles::createClassified() const {
     if (!classifyByManhattanFile) {
         cerr << "Error: file couldn't be opened" << endl;
         exit(1);
-    }
+    }*/
 
     //reads the flowers
     ReadFlowers classifiedReader = ReadFlowers("classified.csv");
-    ReadFlowers unclassifiedReader = ReadFlowers("Unclassified.csv");
+    ReadFlowers unclassifiedReader = ReadFlowers(unclassifiedPath);
 
     classifiedReader.readAndSaveFlowers();
     unclassifiedReader.readAndSaveFlowers();
@@ -56,15 +57,15 @@ void CreateClassifiedFiles::createClassified() const {
         string flowerTypeByEuclidean = classifyFlower.euclideanClassify();
         classifyByEuclideanFile << flowerTypeByEuclidean << endl;
 
-        string flowerTypeByChebyshev = classifyFlower.chebyshevClassify();
-        classifyByChebyshevFile << flowerTypeByChebyshev << endl;
+        /*   string flowerTypeByChebyshev = classifyFlower.chebyshevClassify();
+           classifyByChebyshevFile << flowerTypeByChebyshev << endl;
 
-        string flowerTypeByManhattan = classifyFlower.manhattanClassify();
-        classifyByManhattanFile << flowerTypeByManhattan << endl;
+           string flowerTypeByManhattan = classifyFlower.manhattanClassify();
+           classifyByManhattanFile << flowerTypeByManhattan << endl;*/
     }
 
     classifyByEuclideanFile.close();
-    classifyByChebyshevFile.close();
-    classifyByManhattanFile.close();
-
+    /* classifyByChebyshevFile.close();
+     classifyByManhattanFile.close();
+ */
 }
