@@ -35,10 +35,14 @@ void ServerFront::StartServer() {
     }
 }
 
-char* ServerFront::reciveMessege(){
+char* ServerFront::receiveMessage(){
+    for (int i = 0; i < data_len; i++) {
+        buffer[i] = '\0';
+    }
     long read_bytes = recv(client_sock, buffer, data_len, 0);
     if (read_bytes == 0) {
         cout << "Closed connection in SERVER" << endl;
+        exit(1);
     } else if (read_bytes < 0) {
         cout << "Error reading in SERVER" << endl;
         exit(1);
@@ -46,13 +50,15 @@ char* ServerFront::reciveMessege(){
     return buffer;
 }
 
-void ServerFront::sendMessege(char (&message)[4096]){
+/*
+void ServerFront::sendMessage(char (&message)[4096]){
     long sent_bytes = send(client_sock, message, data_len, 0);
     if (sent_bytes < 0) {
         cout << "Error sending to client in SERVER" << endl;
         exit(1);
     }
 }
+*/
 
 ServerFront::~ServerFront(){
     cout << "Closing socket in SERVER" << endl;

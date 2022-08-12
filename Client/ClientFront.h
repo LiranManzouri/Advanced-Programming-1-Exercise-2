@@ -17,6 +17,6 @@ public:
     }
 
     void sendMessege(char (&message)[4096]);
-    char* reciveMessege();
+//    char* receiveMessege();
     ~ClientFront();
 };

@@ -11,7 +11,8 @@ int main(int argc, char const *argv[])
     ClientFront front;
     char message[4096] = "";
     while (strcmp(message, "close") != 0){
-        cin >> message;
+        cin.getline(message, 4096);
+        cout << "my msg: " << message << endl;
         front.sendMessege(message);
     }
 }

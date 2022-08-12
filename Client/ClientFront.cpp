@@ -29,16 +29,17 @@ void ClientFront::StartClient() {
 }
 
 void ClientFront::sendMessege(char (&message)[4096]){
-    unsigned long data_len = strlen(message);
-    long sent_bytes = send(sock, message, data_len, 0);
+    unsigned long my_data_len = strlen(message);
+    cout << "msg: " << message << " len: " << my_data_len << endl;
+    long sent_bytes = send(sock, message, my_data_len, 0);
     if (sent_bytes < 0)
     {
         cout << "Error sending to server in CLIENT" << endl;
         exit(1);
     }
 }
-
-char* ClientFront::reciveMessege(){
+/*
+char* ClientFront::receiveMessege(){
     long read_bytes = recv(sock, buffer, data_len, 0);
     if (read_bytes == 0) {
         cout << "Closed connection in CLIENT" << endl;
@@ -48,7 +49,7 @@ char* ClientFront::reciveMessege(){
     }
     return buffer;
 }
-
+*/
 ClientFront::~ClientFront(){
     close(sock);
     cout << "closed socket in CLIENT" << endl;

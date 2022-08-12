@@ -12,6 +12,6 @@ public:
         StartServer();
     }
     ~ServerFront();
-    void sendMessege(char (&message)[4096]);
-    char* reciveMessege();
+//    void sendMessage(char (&message)[4096]);
+    char* receiveMessage();
 };

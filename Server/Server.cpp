@@ -10,7 +10,7 @@ int main(int argc, char const *argv[])
     ServerFront front;
     char message[4096] = "";
     while (strcmp(message,"close") != 0){
-        strcpy(message, front.reciveMessege());
+        strcpy(message, front.receiveMessage());
         cout << "Client : " << message << endl;
     }
 }
