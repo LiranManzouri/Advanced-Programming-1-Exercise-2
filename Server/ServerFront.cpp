@@ -7,6 +7,7 @@
 using namespace std;
 
 void ServerFront::StartServer() {
+    cout << "SERVER" << endl;
     const int server_port = 5555;
     sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock < 0) {
@@ -18,6 +19,7 @@ void ServerFront::StartServer() {
     sin.sin_family = AF_INET;
     sin.sin_addr.s_addr = INADDR_ANY;
     sin.sin_port = htons(server_port);
+
     if (bind(sock, (struct sockaddr *) &sin, sizeof(sin)) < 0) {
         cout << "Error binding socket in SERVER" << endl;
         exit(1);
@@ -35,7 +37,7 @@ void ServerFront::StartServer() {
     }
 }
 
-char* ServerFront::receiveMessage(){
+char *ServerFront::receiveMessage() {
     for (int i = 0; i < data_len; i++) {
         buffer[i] = '\0';
     }
@@ -60,7 +62,7 @@ void ServerFront::sendMessage(char (&message)[4096]){
 }
 */
 
-ServerFront::~ServerFront(){
+ServerFront::~ServerFront() {
     cout << "Closing socket in SERVER" << endl;
     close(sock);
 }

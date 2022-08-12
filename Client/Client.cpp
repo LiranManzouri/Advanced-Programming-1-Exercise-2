@@ -6,13 +6,11 @@
 
 using namespace std;
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
     ClientFront front;
     char message[4096] = "";
-    while (strcmp(message, "close") != 0){
+    while (strcmp(message, "close") != 0) {
         cin.getline(message, 4096);
-        cout << "my msg: " << message << endl;
         front.sendMessege(message);
     }
 }

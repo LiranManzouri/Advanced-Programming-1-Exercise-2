@@ -10,10 +10,11 @@
 using namespace std;
 
 void ClientFront::StartClient() {
+    cout << "CLIENT" << endl;
     const char *ip_address = "127.0.0.1";
     const int port_no = 5555;
     sock = socket(AF_INET, SOCK_STREAM, 0);
-    if (sock < 0){
+    if (sock < 0) {
         cout << "Error creating socket in CLIENT" << endl;
         exit(1);
     }
@@ -28,16 +29,15 @@ void ClientFront::StartClient() {
     }
 }
 
-void ClientFront::sendMessege(char (&message)[4096]){
+void ClientFront::sendMessege(char (&message)[4096]) {
     unsigned long my_data_len = strlen(message);
-    cout << "msg: " << message << " len: " << my_data_len << endl;
     long sent_bytes = send(sock, message, my_data_len, 0);
-    if (sent_bytes < 0)
-    {
+    if (sent_bytes < 0) {
         cout << "Error sending to server in CLIENT" << endl;
         exit(1);
     }
 }
+
 /*
 char* ClientFront::receiveMessege(){
     long read_bytes = recv(sock, buffer, data_len, 0);
@@ -50,7 +50,7 @@ char* ClientFront::receiveMessege(){
     return buffer;
 }
 */
-ClientFront::~ClientFront(){
+ClientFront::~ClientFront() {
     close(sock);
     cout << "closed socket in CLIENT" << endl;
 }
