@@ -22,7 +22,7 @@ int main(int argc, char const *argv[]) {
         char flowerTypesAsChar[4096];
         int l = 0;
         for (int j = 0; j < flowerTypes.second; j++) {
-            for (char k : flowerTypes.first[j]) {
+            for (char k: flowerTypes.first[j]) {
                 flowerTypesAsChar[l] = k;
                 l++;
             }

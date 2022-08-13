@@ -17,6 +17,8 @@ public:
     }
 
     void sendMessage(char (&message)[4096]) const;
+
     char *receiveMessage();
+
     ~ClientFront();
 };

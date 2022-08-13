@@ -15,7 +15,7 @@ class Flower {
     double m_petalLength;
     double m_petalWidth;
 public:
-    
+
     // constructor for the flower class
     Flower(std::string flowerType, double calyxLeavesLength, double calyxLeavesWidth, double petalLength,
            double petalWidth) : m_calyxLeavesLength(calyxLeavesLength), m_calyxLeavesWidth(calyxLeavesWidth),

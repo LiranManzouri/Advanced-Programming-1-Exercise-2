@@ -8,10 +8,13 @@ private:
     void StartServer();
 
 public:
-    ServerFront(){
+    ServerFront() {
         StartServer();
     }
+
     ~ServerFront();
+
     void sendMessage(char (&message)[4096]) const;
-    char* receiveMessage();
+
+    char *receiveMessage();
 };

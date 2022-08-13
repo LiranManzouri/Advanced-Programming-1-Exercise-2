@@ -41,7 +41,7 @@ char *ServerFront::receiveMessage() {
     for (int i = 0; i < data_len; i++) {
         buffer[i] = '\0';
     }
-    
+
     long read_bytes = recv(client_sock, buffer, data_len, 0);
 
     if (read_bytes == 0) {
@@ -55,7 +55,7 @@ char *ServerFront::receiveMessage() {
 }
 
 
-void ServerFront::sendMessage(char (&message)[4096]) const{
+void ServerFront::sendMessage(char (&message)[4096]) const {
     long sent_bytes = send(client_sock, message, data_len, 0);
     if (sent_bytes < 0) {
         cout << "Error sending to client in SERVER" << endl;

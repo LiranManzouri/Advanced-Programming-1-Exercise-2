@@ -26,6 +26,5 @@ add_executable(Advanced_Programming_1___Exercise_2
         Flower.h
         KNN.cpp
         KNN.h
-        Main.cpp
         ReadFlowers.cpp
         ReadFlowers.h)

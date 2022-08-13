@@ -19,7 +19,7 @@ public:
 
     // creates the output files for the classifier to write in
     // and write the classified info to the files
-    std::pair<std::string*, int> createClassified() const;
+    std::pair<std::string *, int> createClassified() const;
 };
 
 

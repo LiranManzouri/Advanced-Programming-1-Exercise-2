@@ -20,7 +20,7 @@ class ClassifyFlower {
 
     std::pair<Flower *, double> *getManhattanDistances() const;
 
-    std::string classifyByKNN(std::pair<Flower*, double> *distances) const;
+    std::string classifyByKNN(std::pair<Flower *, double> *distances) const;
 
 public:
 

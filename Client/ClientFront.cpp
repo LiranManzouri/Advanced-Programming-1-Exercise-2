@@ -11,7 +11,6 @@ using namespace std;
 
 void ClientFront::StartClient() {
     cout << "CLIENT" << endl;
-    const char *ip_address = "127.0.0.1";
     const int port_no = 5555;
     sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock < 0) {
@@ -21,7 +20,7 @@ void ClientFront::StartClient() {
     struct sockaddr_in sin{};
     memset(&sin, 0, sizeof(sin));
     sin.sin_family = AF_INET;
-    sin.sin_addr.s_addr = inet_addr(ip_address);
+    sin.sin_addr.s_addr = INADDR_ANY;
     sin.sin_port = htons(port_no);
     if (connect(sock, (struct sockaddr *) &sin, sizeof(sin)) < 0) {
         cout << "Error connecting to server in CLIENT" << endl;
@@ -39,9 +38,9 @@ void ClientFront::sendMessage(char (&message)[4096]) const {
 }
 
 
-char* ClientFront::receiveMessage(){
+char *ClientFront::receiveMessage() {
     for (int i = 0; i < data_len; i++) {
-            buffer[i] = '\0';
+        buffer[i] = '\0';
     }
 
     long read_bytes = recv(sock, buffer, data_len, 0);
