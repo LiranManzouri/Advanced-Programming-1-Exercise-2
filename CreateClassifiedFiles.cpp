@@ -5,6 +5,7 @@
 #include "CreateClassifiedFiles.h"
 #include "ReadFlowers.h"
 #include "ClassifyFlower.h"
+#include "iostream"
 
 using namespace std;
 
@@ -12,18 +13,15 @@ using namespace std;
  * It reads the classified and unclassified flowers, and then
  * classifies the unclassified flowers by the three methods, and writes the results to the files
  */
-string *CreateClassifiedFiles::createClassified() const {
+pair<string*, int> CreateClassifiedFiles::createClassified() const {
     //reads the flowers
     ReadFlowers classifiedReader = ReadFlowers("classified.csv");
     ReadFlowers unclassifiedReader = ReadFlowers(unclassifiedPath);
-
     classifiedReader.readAndSaveFlowers();
     unclassifiedReader.readAndSaveFlowers();
-
     Flower *classifiedFlowers = classifiedReader.getFlowers();
     int numOfClassifiedFlowers = classifiedReader.getNumOfFlowers();
-
-    auto *flowerTypesByOrder = new string[unclassifiedReader.getNumOfFlowers()];
+    string flowerTypesByOrder[unclassifiedReader.getNumOfFlowers()];
 
     //writes the classified info to the files
     for (int i = 0; i < unclassifiedReader.getNumOfFlowers(); i++) {
@@ -34,5 +32,7 @@ string *CreateClassifiedFiles::createClassified() const {
         flowerTypesByOrder[i] = flowerTypeByEuclidean;
     }
 
-    return flowerTypesByOrder;
+    pair<string*, int> pair(flowerTypesByOrder, unclassifiedReader.getNumOfFlowers());
+
+    return pair;
 }

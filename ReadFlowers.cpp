@@ -20,6 +20,7 @@ void ReadFlowers::readAndSaveFlowers() {
     string line;
     const char delim = ',';
     int index = 0;
+    int i = 0;
     while (!flowersInputFile.eof()) {
         getline(flowersInputFile, line);
         if (line.empty()) {

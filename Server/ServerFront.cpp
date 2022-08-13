@@ -55,7 +55,7 @@ char *ServerFront::receiveMessage() {
 }
 
 
-void ServerFront::sendMessage(char (&message)[4096]){
+void ServerFront::sendMessage(char (&message)[4096]) const{
     long sent_bytes = send(client_sock, message, data_len, 0);
     if (sent_bytes < 0) {
         cout << "Error sending to client in SERVER" << endl;

@@ -39,9 +39,9 @@ void ClientFront::sendMessage(char (&message)[4096]) const {
 }
 
 
-char* ClientFront::receiveMessege(){
+char* ClientFront::receiveMessage(){
     for (int i = 0; i < data_len; i++) {
-        buffer[i] = '\0';
+            buffer[i] = '\0';
     }
 
     long read_bytes = recv(sock, buffer, data_len, 0);
