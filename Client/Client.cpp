@@ -1,6 +1,5 @@
 #include "Client.h"
 #include "ClientFront.h"
-
 #include <iostream>
 #include <cstring>
 
@@ -20,4 +19,5 @@ int main(int argc, char const *argv[]) {
         cin.getline(message, 4096);
         front.sendMessage(message);
     }
+    cout << "Server :" << front.receiveMessege() << endl;
 }
