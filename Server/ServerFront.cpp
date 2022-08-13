@@ -24,7 +24,7 @@ void ServerFront::StartServer() {
         cout << "Error binding socket in SERVER" << endl;
         exit(1);
     }
-    if (listen(sock, 5) < 0) {
+    if (listen(sock, 1) < 0) {
         cout << "Error listening to a socket in SERVER" << endl;
         exit(1);
     }
