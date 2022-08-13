@@ -2,7 +2,6 @@
 #include <unistd.h>
 #include <cstring>
 #include <iostream>
-#include <CreateClassifiedFiles.h>
 #include "ServerFront.h"
 
 using namespace std;
@@ -42,7 +41,7 @@ char *ServerFront::receiveMessage() {
     for (int i = 0; i < data_len; i++) {
         buffer[i] = '\0';
     }
-
+    
     long read_bytes = recv(client_sock, buffer, data_len, 0);
 
     if (read_bytes == 0) {
@@ -52,31 +51,10 @@ char *ServerFront::receiveMessage() {
         cout << "Error reading in SERVER" << endl;
         exit(1);
     }
-
-    string unclassifiedPath;
-    string outputClassifiedPath;
-    int i = 0;
-    while (buffer[i] != ' ') {
-        unclassifiedPath += buffer[i];
-        i++;
-    }
-    i++;
-    while(buffer[i] != '\0') {
-        outputClassifiedPath += buffer[i];
-        i++;
-    }
-
-    cout << "Buffer: " << buffer << endl;
-    cout << "Unclassified: " << unclassifiedPath << endl;
-    cout << "Classified: " << outputClassifiedPath << endl;
-
-    CreateClassifiedFiles createClassifiedFiles = CreateClassifiedFiles(7, unclassifiedPath, outputClassifiedPath);
-    createClassifiedFiles.createClassified();
-
     return buffer;
 }
 
-/*
+
 void ServerFront::sendMessage(char (&message)[4096]){
     long sent_bytes = send(client_sock, message, data_len, 0);
     if (sent_bytes < 0) {
@@ -84,7 +62,7 @@ void ServerFront::sendMessage(char (&message)[4096]){
         exit(1);
     }
 }
-*/
+
 
 ServerFront::~ServerFront() {
     cout << "Closing socket in SERVER" << endl;
