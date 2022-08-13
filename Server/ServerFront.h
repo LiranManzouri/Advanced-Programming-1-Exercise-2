@@ -1,6 +1,3 @@
-#ifndef ADVANCED_PROGRAMMING_1___EXERCISE_2_SERVERFRONT_H
-#define ADVANCED_PROGRAMMING_1___EXERCISE_2_SERVERFRONT_H
-
 class ServerFront {
 private:
     int client_sock;
@@ -11,14 +8,10 @@ private:
     void StartServer();
 
 public:
-    ServerFront() {
+    ServerFront(){
         StartServer();
     }
-
     ~ServerFront();
-
-//    void sendMessage(char (&message)[4096]);
-    char *receiveMessage();
+    void sendMessage(char (&message)[4096]);
+    char* receiveMessage();
 };
-
-#endif //ADVANCED_PROGRAMMING_1___EXERCISE_2_SERVERFRONT_H

@@ -1,12 +1,12 @@
 #!usr/bin/bash
 
 function terminal1(){
-    g++ *.cpp *.h Server/*.cpp Server/*.h -o bin/Server.out
+    g++ Server/*.cpp Server/*.h *.cpp *.h -o bin/Server.out
     bin/Server.out
 }
 
 function terminal2(){
-    g++ Client/*cpp Client/*h -o bin/Client.out
+    g++ Client/*.cpp Client/*.h *.cpp *.h -o bin/Client.out
     bin/Client.out
 }
 
