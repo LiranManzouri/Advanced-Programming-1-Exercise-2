@@ -2,8 +2,8 @@
 // Created by liran on 19/07/2022.
 //
 
-#ifndef ADVANCED_PROGRAMMING_1_FLOWER_H
-#define ADVANCED_PROGRAMMING_1_FLOWER_H
+#ifndef ADVANCED_PROGRAMMING_1___EXERCISE_2_FLOWER_H
+#define ADVANCED_PROGRAMMING_1___EXERCISE_2_FLOWER_H
 
 
 #include <string>
@@ -54,4 +54,4 @@ public:
 
 std::ostream &operator<<(std::ostream &os, const Flower &flower);
 
-#endif //ADVANCED_PROGRAMMING_1_FLOWER_H
+#endif //ADVANCED_PROGRAMMING_1___EXERCISE_2_FLOWER_H

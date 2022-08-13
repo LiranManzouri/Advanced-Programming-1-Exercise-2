@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <cstring>
 #include <iostream>
-#include <CreateClassifiedFiles.h>
+#include "CreateClassifiedFiles.h"
 #include "ServerFront.h"
 
 using namespace std;
@@ -61,17 +61,18 @@ char *ServerFront::receiveMessage() {
         i++;
     }
     i++;
-    while(buffer[i] != '\0') {
+    while (buffer[i] != '\0') {
         outputClassifiedPath += buffer[i];
         i++;
     }
 
     cout << "Buffer: " << buffer << endl;
     cout << "Unclassified: " << unclassifiedPath << endl;
-    cout << "Classified: " << outputClassifiedPath << endl;
+    cout << "Output Classified: " << outputClassifiedPath << endl;
 
-    CreateClassifiedFiles createClassifiedFiles = CreateClassifiedFiles(7, unclassifiedPath, outputClassifiedPath);
-    createClassifiedFiles.createClassified();
+    CreateClassifiedFiles createClassifiedFiles/* = CreateClassifiedFiles*/(7, unclassifiedPath, outputClassifiedPath);
+    string *flowerTypesByOrder = createClassifiedFiles.createClassified();
+    cout << flowerTypesByOrder[0] << "   and   " << flowerTypesByOrder[14] << endl;
 
     return buffer;
 }

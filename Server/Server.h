@@ -1,3 +1,14 @@
-class Server{
+//
+// Created by liran on 13/08/2022.
+//
+
+#ifndef ADVANCED_PROGRAMMING_1___EXERCISE_2_SERVER_H
+#define ADVANCED_PROGRAMMING_1___EXERCISE_2_SERVER_H
+
+
+class Server {
 
 };
+
+
+#endif //ADVANCED_PROGRAMMING_1___EXERCISE_2_SERVER_H

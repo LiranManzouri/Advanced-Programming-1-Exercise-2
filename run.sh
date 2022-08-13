@@ -1,7 +1,7 @@
 #!usr/bin/bash
 
 function terminal1(){
-    g++ Server/*.cpp Server/*.h -o bin/Server.out
+    g++ *.cpp *.h Server/*.cpp Server/*.h -o bin/Server.out
     bin/Server.out
 }
 
