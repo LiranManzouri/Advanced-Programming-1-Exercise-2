@@ -5,7 +5,6 @@
 #include "CreateClassifiedFiles.h"
 #include "ReadFlowers.h"
 #include "ClassifyFlower.h"
-#include "iostream"
 
 using namespace std;
 
@@ -19,20 +18,23 @@ pair<string *, int> CreateClassifiedFiles::createClassified() const {
     ReadFlowers unclassifiedReader = ReadFlowers(unclassifiedPath);
     classifiedReader.readAndSaveFlowers();
     unclassifiedReader.readAndSaveFlowers();
-    Flower *classifiedFlowers = classifiedReader.getFlowers();
-    int numOfClassifiedFlowers = classifiedReader.getNumOfFlowers();
-    string flowerTypesByOrder[unclassifiedReader.getNumOfFlowers()];
 
-    //writes the classified info to the files
-    for (int i = 0; i < unclassifiedReader.getNumOfFlowers(); i++) {
-        const Flower unclassifiedFlower = unclassifiedReader.getFlowers()[i];
-        ClassifyFlower classifyFlower = ClassifyFlower(unclassifiedFlower, classifiedFlowers,
-                                                       numOfClassifiedFlowers, k);
-        string flowerTypeByEuclidean = classifyFlower.euclideanClassify();
-        flowerTypesByOrder[i] = flowerTypeByEuclidean;
+    int numOfClassifiedFlowers = classifiedReader.getNumOfFlowers();
+    int numOfUnclassifiedFlowers = unclassifiedReader.getNumOfFlowers();
+
+    string flowerTypesByOrder[numOfUnclassifiedFlowers];
+
+    Flower *classifiedFlowers = classifiedReader.getFlowers();
+    Flower *unclassifiedFlowers = unclassifiedReader.getFlowers();
+
+    //writes the classified info to the array.
+    for (int i = 0; i < numOfUnclassifiedFlowers; i++) {
+        const Flower unclassifiedFlower = unclassifiedFlowers[i];
+        ClassifyFlower classifyFlower(unclassifiedFlower, classifiedFlowers, numOfClassifiedFlowers, k);
+        flowerTypesByOrder[i] = classifyFlower.euclideanClassify();
     }
 
-    pair<string *, int> pair(flowerTypesByOrder, unclassifiedReader.getNumOfFlowers());
+    pair<string *, int> typesAndNumOfTypesPair(flowerTypesByOrder, numOfUnclassifiedFlowers);
 
-    return pair;
+    return typesAndNumOfTypesPair;
 }
