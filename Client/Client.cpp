@@ -1,4 +1,3 @@
-#include "Client.h"
 #include "ClientFront.h"
 #include <iostream>
 #include <cstring>
@@ -15,7 +14,7 @@ int main(int argc, char const *argv[]) {
     // Responsible for the communication.
     ClientFront front;
     // Saves the message.
-    char message[4096] = "";
+    char message[4096] = {0};
     // Stops the communication after getting the close message.
     while (strcmp(message, "close") != 0) {
         // Asks for the paths.

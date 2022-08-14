@@ -1,4 +1,3 @@
-#include "Server.h"
 #include "ServerFront.h"
 #include <iostream>
 #include <cstring>
@@ -7,9 +6,15 @@
 
 using namespace std;
 
+/*
+ * Main for the server, to communicate with the clients.
+ * The server gets a path to unclassified flowers from a client and
+ * classify them, after that, the server sends it back to the client.
+ */
 int main(int argc, char const *argv[]) {
+    // Responsible for the communication.
     ServerFront front;
-    char message[4096] = "";
+    char message[4096] = {0};
     while (true) {
         strcpy(message, front.receiveMessage());
         if (strcmp(message, "close") == 0) {
