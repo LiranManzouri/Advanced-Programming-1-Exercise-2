@@ -61,13 +61,13 @@ string ClassifyFlower::classifyByKNN(pair<Flower *, double> *distances) const {
     int counterForIrisVersicolor = 0;
     int counterForIrisVirginica = 0;
     for (int i = 0; i < k; i++) {
-        if (distances[i].first->getFlowerType() == "Iris-setosa") {
+        if (distances[i].first->getFlowerType().compare("Iris-setosa") == 0) {
             counterForIrisSetosa++;
         }
-        if (distances[i].first->getFlowerType() == "Iris-versicolor") {
+        if (distances[i].first->getFlowerType().compare("Iris-versicolor") == 0) {
             counterForIrisVersicolor++;
         }
-        if (distances[i].first->getFlowerType() == "Iris-virginica") {
+        if (distances[i].first->getFlowerType().compare("Iris-virginica") == 0) {
             counterForIrisVirginica++;
         }
     }

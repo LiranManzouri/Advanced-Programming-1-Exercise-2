@@ -20,7 +20,6 @@ void ReadFlowers::readAndSaveFlowers() {
     string line;
     const char delim = ',';
     int index = 0;
-    int i = 0;
     while (!flowersInputFile.eof()) {
         getline(flowersInputFile, line);
         if (line.empty()) {
@@ -36,7 +35,8 @@ void ReadFlowers::readAndSaveFlowers() {
         string flowerType;
         if (line.find(delim) != string::npos) {
             line.erase(0, line.find(delim) + 1);
-            flowerType = line;
+            flowerType = line.substr(0, line.length() - 1);
+            flowerType.append("\0");
             line.erase();
         }
         double calyxLeavesLength = stod(token1);
