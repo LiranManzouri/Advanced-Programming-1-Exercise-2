@@ -25,7 +25,7 @@ After running, you'll be asked in the terminals for the unclassified path and th
 space. For example: "Unclassified.csv output.csv" (without the ""). You can close the client socket and stop the
 communication anytime, by writing "close" (without the "") instead of the paths. For closing the server socket, you'll
 have to close the client socket first, and then press "2" in the little menu you will see, for waiting and accept
-another client, press "1" in that menu, and then run only the Client again (same as mentioned up).
+another client, press "1" in that menu, and then run only the Client again (same as mentioned above).
 
 # Implantation
 
