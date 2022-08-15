@@ -17,6 +17,8 @@ SHORTCUT: you can open one terminal, move into the directory where the code file
 write there "bash run.sh" in the command line after being at the directory, and 2 terminals for server and client will
 automatically open.
 
+Of course, if it's not working on mobaXterm, the commands that we mentioned above are working.
+
 # Notes and actions while running
 
 After running, you'll be asked in the terminals for the unclassified path and the output path, write them seperated with
