@@ -4,9 +4,9 @@ In order to run the project, you will need to save an empty "bin" directory and 
 like we've seen in exercise 1 in the directory you are in at the time you run the project. Next, you'll need to open 2
 terminals, in each you'll need to move into the directory where the code files + the classified.csv file are in. One
 terminal for the server, which the compile command and the run command in it are:
-Compile command - "g++ -std=c++11 Server/*.cpp Server/*.h *.cpp *.h -o bin/Server.out". Run command - "./bin/Server.out"
+Compile command - "g++ -std=c++11 Server/\*.cpp Server/\*.h \*.cpp \*.h -o bin/Server.out". Run command - "./bin/Server.out"
 . The second terminal is for the client, which the compile command and the run command in it are:
-Compile command - "g++ -std=c++11 Client/*.cpp Client/*.h *.cpp *.h -o bin/Client.out". Run command - "./bin/Client.out"
+Compile command - "g++ -std=c++11 Client/\*.cpp Client/\*.h *.cpp \*.h -o bin/Client.out". Run command - "./bin/Client.out"
 .
 
 # Shortcut for compilation and running commands
