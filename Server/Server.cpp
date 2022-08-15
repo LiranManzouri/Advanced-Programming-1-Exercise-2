@@ -32,7 +32,7 @@ int main(int argc, char const *argv[]) {
                 cin >> option;
                 // Waits for new client.
                 if (option == "1") {
-                    cout << "==> Waiting..." << endl;
+                    cout << "==> Waiting for client..." << endl;
                     // Closes the client socket.
                     front.closeClientSock();
                     // Gets new client.

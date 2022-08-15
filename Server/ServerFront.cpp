@@ -15,6 +15,7 @@ void ServerFront::StartServer() {
         cout << " ";
     }
     cout << "\033[4m\e[1mSERVER\e[0m\033[0m" << endl;
+    cout << "==> Waiting for client..." << endl;
     // Port to use.
     const int server_port = 5555;
     // Creates the socket and checks it created successfully.
