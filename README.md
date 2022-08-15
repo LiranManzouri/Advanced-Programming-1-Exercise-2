@@ -9,7 +9,7 @@ Compile command - "g++ -std=c++11 Server/\*.cpp Server/\*.h \*.cpp \*.h -o bin/S
 ./bin/Server.out"
 . The second terminal is for the client, which the compile command and the run command in it are:
 Compile command - "g++ -std=c++11 Client/\*.cpp Client/\*.h *.cpp \*.h -o bin/Client.out". Run command - "
-./bin/Client.out".
+./bin/Client.out". We chose the port to be 5555 and the buffer/messages size to be 4096.
 
 # Shortcut for compilation and running commands
 
