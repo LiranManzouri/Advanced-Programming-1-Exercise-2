@@ -1,13 +1,15 @@
 # Advanced Programming 1 - Exercise 2
 
 In order to run the project, you will need to save an empty "bin" directory and a "classified.csv" file (in that names),
-like we've seen in exercise 1 in the directory you are in at the time you run the project. Next, you'll need to open 2
-terminals, in each you'll need to move into the directory where the code files + the classified.csv file are in. One
-terminal for the server, which the compile command and the run command in it are:
-Compile command - "g++ -std=c++11 Server/\*.cpp Server/\*.h \*.cpp \*.h -o bin/Server.out". Run command - "./bin/Server.out"
+like we've seen in exercise 1 in the directory you are in at the time you run the project. We already have this
+classified.csv file in GitHub, but if you would like to use new file, just do what mentioned above. Next, you'll need to
+open 2 terminals, in each you'll need to move into the directory where the code files + the classified.csv file are in.
+One terminal for the server, which the compile command and the run command in it are:
+Compile command - "g++ -std=c++11 Server/\*.cpp Server/\*.h \*.cpp \*.h -o bin/Server.out". Run command - "
+./bin/Server.out"
 . The second terminal is for the client, which the compile command and the run command in it are:
-Compile command - "g++ -std=c++11 Client/\*.cpp Client/\*.h *.cpp \*.h -o bin/Client.out". Run command - "./bin/Client.out"
-.
+Compile command - "g++ -std=c++11 Client/\*.cpp Client/\*.h *.cpp \*.h -o bin/Client.out". Run command - "
+./bin/Client.out".
 
 # Shortcut for compilation and running commands
 
