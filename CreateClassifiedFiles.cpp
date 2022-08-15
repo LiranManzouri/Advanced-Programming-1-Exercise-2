@@ -22,7 +22,7 @@ pair<string *, int> CreateClassifiedFiles::createClassified() const {
     int numOfClassifiedFlowers = classifiedReader.getNumOfFlowers();
     int numOfUnclassifiedFlowers = unclassifiedReader.getNumOfFlowers();
 
-    string flowerTypesByOrder[numOfUnclassifiedFlowers];
+    auto flowerTypesByOrder = new string[numOfUnclassifiedFlowers];
 
     Flower *classifiedFlowers = classifiedReader.getFlowers();
     Flower *unclassifiedFlowers = unclassifiedReader.getFlowers();

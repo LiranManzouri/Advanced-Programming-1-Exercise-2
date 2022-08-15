@@ -56,7 +56,7 @@ int main(int argc, char const *argv[]) {
         // Classify the unclassified flowers in the given path.
         CreateClassifiedFiles createClassifiedFiles(7, message);
         pair<string *, int> flowerTypes = createClassifiedFiles.createClassified();
-        char flowerTypesAsChar[4096];
+        char flowerTypesAsChar[4096] = {0};
         int l = 0;
         // Writes the classifiers types to the char array, seperated by '\n'.
         for (int j = 0; j < flowerTypes.second; j++) {
@@ -67,6 +67,8 @@ int main(int argc, char const *argv[]) {
             flowerTypesAsChar[l] = '\n';
             l++;
         }
+        flowerTypesAsChar[l] = '\0';
+        delete[] flowerTypes.first;
         // Sends the classified to the client.
         cout << "==> Classified! Sending back to you..." << endl;
         front.sendMessage(flowerTypesAsChar);

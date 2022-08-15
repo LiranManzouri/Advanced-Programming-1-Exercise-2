@@ -27,8 +27,8 @@ int main(int argc, char const *argv[]) {
             break;
         }
         // Saves the paths.
-        char unclassifiedPath[4096];
-        char outputClassifiedPath[4096];
+        char unclassifiedPath[4096] = {0};
+        char outputClassifiedPath[4096] = {0};
         // Gets the paths.
         int i = 0, k = 0;
         while (message[i] != ' ') {
@@ -47,8 +47,8 @@ int main(int argc, char const *argv[]) {
         front.sendMessage(unclassifiedPath);
 
         // Gets the types of the flowers after the server classified them.
-        char *messageReceived;
-        messageReceived = front.receiveMessage();
+        char messageReceived[4096] = {0};
+        strcpy(messageReceived, front.receiveMessage());
 
         // Opens the output file.
         ofstream outputClassified;
@@ -60,6 +60,8 @@ int main(int argc, char const *argv[]) {
 
         // Writes the classifiers to the output file.
         outputClassified << messageReceived << endl;
+
+        outputClassified.close();
 
         // Notifies that everything went successful.
         cout << "==> Output file created successfully!\n" << endl;
