@@ -16,5 +16,9 @@ public:
 
     void sendMessage(char (&message)[4096]) const;
 
+    void getNewClient(int i);
+
+    void closeClientSock();
+
     char *receiveMessage();
 };

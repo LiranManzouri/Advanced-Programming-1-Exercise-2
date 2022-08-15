@@ -12,7 +12,10 @@ using namespace std;
  * Initializes the client and connecting it to the server.
  */
 void ClientFront::StartClient() {
-    cout << "CLIENT" << endl;
+    for (int i = 0; i < 37; i++) {
+        cout << " ";
+    }
+    cout << "\033[4m\e[1mCLIENT\e[0m\033[0m" << endl;
     // Port to use.
     const int port_no = 5555;
     // Creates the socket and checks it created successfully.
@@ -76,6 +79,6 @@ char *ClientFront::receiveMessage() {
  */
 ClientFront::~ClientFront() {
     // Closes the socket.
-    close(sock);
-    cout << "closed socket in CLIENT" << endl;
+    /*  close(sock);
+      cout << "closed socket in CLIENT" << endl;*/
 }

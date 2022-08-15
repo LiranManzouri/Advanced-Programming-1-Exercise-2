@@ -18,7 +18,8 @@ int main(int argc, char const *argv[]) {
     // Stops the communication after getting the close message.
     while (strcmp(message, "close") != 0) {
         // Asks for the paths.
-        cout << "Enter the unclassified path and the desired output path:" << endl;
+        cout << "==> Enter the unclassified path and the desired output path:" << endl;
+        cout << "\t==> NOTE: for closing the client socket and stop the communication, send here \"close\"" << endl;
         cin.getline(message, 4096);
         // Stops after "close".
         if (strcmp(message, "close") == 0) {
@@ -60,7 +61,7 @@ int main(int argc, char const *argv[]) {
         outputClassified << messageReceived << endl;
 
         // Notifies that everything went successful.
-        cout << "Output file created successfully!\n" << endl;
+        cout << "==> Output file created successfully!\n" << endl;
 
     }
 }
