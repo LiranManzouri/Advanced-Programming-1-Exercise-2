@@ -3,7 +3,6 @@
 #include <iostream>
 #include <sys/socket.h>
 #include <netinet/in.h>
-#include <unistd.h>
 #include <cstring>
 
 using namespace std;
@@ -12,6 +11,7 @@ using namespace std;
  * Initializes the client and connecting it to the server.
  */
 void ClientFront::StartClient() {
+    // Prints "Client" with bold and underline, in the middle of the terminal.
     for (int i = 0; i < 37; i++) {
         cout << " ";
     }
@@ -72,13 +72,4 @@ char *ClientFront::receiveMessage() {
 
     // Returns the received message.
     return buffer;
-}
-
-/**
- * Destructor.
- */
-ClientFront::~ClientFront() {
-    // Closes the socket.
-    /*  close(sock);
-      cout << "closed socket in CLIENT" << endl;*/
 }

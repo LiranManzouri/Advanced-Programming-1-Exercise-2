@@ -1,7 +1,3 @@
-#include <string>
-#include <utility>
-
-
 /**
  * Class that is in control of communicating between the client
  * and the server, and represents the client in this communication.
@@ -29,7 +25,4 @@ public:
 
     // Receives message from the server.
     char *receiveMessage();
-
-    // Destructor.
-    ~ClientFront();
 };
