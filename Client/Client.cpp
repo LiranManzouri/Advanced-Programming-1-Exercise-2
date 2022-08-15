@@ -62,7 +62,6 @@ int main(int argc, char const *argv[]) {
         outputClassified << messageReceived << endl;
 
         outputClassified.close();
-
         // Notifies that everything went successful.
         cout << "==> Output file created successfully!\n" << endl;
     }
