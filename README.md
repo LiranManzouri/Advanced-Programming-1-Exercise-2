@@ -9,7 +9,10 @@ Compile command - "g++ -std=c++11 Server/*.cpp Server/*.h *.cpp *.h -o bin/Serve
 Compile command - "g++ -std=c++11 Client/*.cpp Client/*.h *.cpp *.h -o bin/Client.out". Run command - "./bin/Client.out"
 .
 
-# Notes and actions while running.
+# Shortcut for compilation and running commands
+SHORTCUT: you can write "bash run.sh" in the command line, and 2 terminals will automatically open.
+
+# Notes and actions while running
 
 After running, you'll be asked in the terminals for the unclassified path and the output path, write them seperated with
 space. For example: "Unclassified.csv output.csv" (without the ""). You can close the client socket and stop the
