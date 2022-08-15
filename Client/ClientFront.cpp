@@ -12,11 +12,10 @@ using namespace std;
  */
 void ClientFront::StartClient() {
     // Prints "Client" with bold and underline, in the middle of the terminal.
-    /*for (int i = 0; i < 37; i++) {
+    for (int i = 0; i < 37; i++) {
         cout << " ";
     }
-    cout << "\033[4m\e[1mCLIENT\e[0m\033[0m" << endl;*/
-    cout << "CLIENT" << endl;
+    cout << "\033[4m\e[1mCLIENT\e[0m\033[0m" << endl;
     // Port to use.
     const int port_no = 5555;
     // Creates the socket and checks it created successfully.

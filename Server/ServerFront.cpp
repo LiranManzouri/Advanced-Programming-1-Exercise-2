@@ -11,11 +11,10 @@ using namespace std;
  */
 void ServerFront::StartServer() {
     // Prints "SERVER" with bold and underline, in the middle of the terminal.
-    /*for (int i = 0; i < 37; i++) {
+    for (int i = 0; i < 37; i++) {
         cout << " ";
     }
-    cout << "\033[4m\e[1mSERVER\e[0m\033[0m" << endl;*/
-    cout << "SERVER" << endl;
+    cout << "\033[4m\e[1mSERVER\e[0m\033[0m" << endl;
     cout << "==> Waiting for client..." << endl;
     // Port to use.
     const int server_port = 5555;
