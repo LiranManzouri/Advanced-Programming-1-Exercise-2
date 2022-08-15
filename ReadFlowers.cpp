@@ -57,7 +57,6 @@ int ReadFlowers::getNumOfFlowers() {
     while (!inputFile.eof()) {
         getline(inputFile, line);
         if (line.empty()) {
-            cout << "111" << endl;
             continue;
         }
         numOfFlowers++;
