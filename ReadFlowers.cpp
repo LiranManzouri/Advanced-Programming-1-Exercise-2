@@ -35,7 +35,7 @@ void ReadFlowers::readAndSaveFlowers() {
         string flowerType;
         if (line.find(delim) != string::npos) {
             line.erase(0, line.find(delim) + 1);
-            flowerType = line.substr(0, line.length() - 1);
+            flowerType = line.substr(0, line.find('\r') - 1);
             flowerType.append("\0");
             line.erase();
         }

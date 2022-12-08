@@ -9,7 +9,7 @@ Compile command - "g++ -std=c++11 Server/\*.cpp Server/\*.h \*.cpp \*.h -o bin/S
 ./bin/Server.out"
 . The second terminal is for the client, which the compile command and the run command in it are:
 Compile command - "g++ -std=c++11 Client/\*.cpp Client/\*.h *.cpp \*.h -o bin/Client.out". Run command - "
-./bin/Client.out".
+./bin/Client.out". We chose the port to be 5555 and the buffer/messages size to be 4096.
 
 # Shortcut for compilation and running commands
 
@@ -17,13 +17,15 @@ SHORTCUT: you can open one terminal, move into the directory where the code file
 write there "bash run.sh" in the command line after being at the directory, and 2 terminals for server and client will
 automatically open.
 
+Of course, if it's not working on mobaXterm, the commands that we mentioned above are working.
+
 # Notes and actions while running
 
 After running, you'll be asked in the terminals for the unclassified path and the output path, write them seperated with
 space. For example: "Unclassified.csv output.csv" (without the ""). You can close the client socket and stop the
 communication anytime, by writing "close" (without the "") instead of the paths. For closing the server socket, you'll
 have to close the client socket first, and then press "2" in the little menu you will see, for waiting and accept
-another client, press "1" in that menu, and then run only the Client again (same as mentioned up).
+another client, press "1" in that menu, and then run only the Client again (same as mentioned above).
 
 # Implantation
 
